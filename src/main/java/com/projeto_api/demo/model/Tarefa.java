@@ -27,18 +27,16 @@ public class Tarefa {
 
     private String responsavel;
 
-    // Construtor vazio (necessário para o JPA)
     public Tarefa() {
     }
 
-    // Construtor com campos (opcional, mas útil)
     public Tarefa(String nome, LocalDate dataEntrega, String responsavel) {
         this.nome = nome;
         this.dataEntrega = dataEntrega;
         this.responsavel = responsavel;
     }
 
-    // --- Getters e Setters ---
+   
 
     public Long getId() {
         return id;
