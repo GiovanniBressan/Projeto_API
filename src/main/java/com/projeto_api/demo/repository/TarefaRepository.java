@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
-    // O Spring Data JPA cria os métodos find, save, delete, etc. automaticamente.
+    
 }
