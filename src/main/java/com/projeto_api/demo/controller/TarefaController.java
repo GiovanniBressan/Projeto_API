@@ -13,7 +13,7 @@ import java.util.List;
 //RU: 3608113
 
 @RestController
-@RequestMapping("/api/tarefas") // Define o prefixo da URL para todos os métodos
+@RequestMapping("/api/tarefas") 
 public class TarefaController {
 
     @Autowired
@@ -42,33 +42,29 @@ public class TarefaController {
     @GetMapping("/{id}")
     public ResponseEntity<Tarefa> buscarPorId(@PathVariable Long id) {
         return tarefaService.buscarPorId(id)
-                     .map(ResponseEntity::ok) // Se encontrar, retorna 200 OK
-                     .orElseGet(() -> ResponseEntity.notFound().build()); // Se não encontrar, retorna 404 Not Found
+                     .map(ResponseEntity::ok) 
+                     .orElseGet(() -> ResponseEntity.notFound().build()); 
     }
 
-    // 4. Atualizar uma Tarefa (PUT)
-    // URL: PUT http://localhost:8080/api/tarefas/{id}
     @PutMapping("/{id}")
     public ResponseEntity<Tarefa> atualizarTarefa(@PathVariable Long id, @RequestBody Tarefa tarefaDetalhes) {
         Tarefa tarefaAtualizada = tarefaService.atualizarTarefa(id, tarefaDetalhes);
         
         if (tarefaAtualizada != null) {
-            return ResponseEntity.ok(tarefaAtualizada); // Retorna 200 OK
+            return ResponseEntity.ok(tarefaAtualizada); 
         } else {
-            return ResponseEntity.notFound().build(); // Retorna 404 Not Found
+            return ResponseEntity.notFound().build(); 
         }
     }
 
-    // 5. Remover uma Tarefa (DELETE)
-    // URL: DELETE http://localhost:8080/api/tarefas/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarTarefa(@PathVariable Long id) {
         boolean deletado = tarefaService.deletarTarefa(id);
         
         if (deletado) {
-            return ResponseEntity.noContent().build(); // Retorna 204 No Content
+            return ResponseEntity.noContent().build(); 
         } else {
-            return ResponseEntity.notFound().build(); // Retorna 404 Not Found
+            return ResponseEntity.notFound().build();
         }
     }
 }
