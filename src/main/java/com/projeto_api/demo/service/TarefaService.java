@@ -37,14 +37,14 @@ public class TarefaService {
         if (tarefaOptional.isPresent()) {
             Tarefa tarefaExistente = tarefaOptional.get();
             
-            // Atualiza apenas os campos que o usuário enviou
+            
             tarefaExistente.setNome(tarefaDetalhes.getNome());
             tarefaExistente.setDataEntrega(tarefaDetalhes.getDataEntrega());
             tarefaExistente.setResponsavel(tarefaDetalhes.getResponsavel());
             
             return tarefaRepository.save(tarefaExistente);
         } else {
-            return null; // Retorna null se não encontrar a tarefa
+            return null; 
         }
     }
 
