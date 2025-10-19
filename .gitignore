@@ -1,0 +1,15 @@
+/target/
+
+.classpath
+.project
+.settings/
+
+*.jar
+*.war
+/target/
+/bin/
+
+
+.restarted/
+
+application.properties 
